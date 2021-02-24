@@ -17,19 +17,65 @@ if(myAlphaKey == 'd')
 
 
 
-
 }">
 
 <h1 align=center>T3A09-event-khalil-ayach</h1>
-Output span: <span id="mySpan01">...</span><br><br>
+Output span:<b> <span id="mySpan01">...</span><br><br></b>
+
+This is <b>myArrowKey left</b> this isn't <br><br>
+
+This is <b>myAlphaKey d</b> this isn't <br><br>
 
 Traditional onclick event: <input type=button value="onclick event" onclick= "{
 document.getElementById('mySpan01').innerHTML = 'h1 from onclick'
 }"><br><br>
 
-This is <b onMouseOver="{
-document.getElementById('mySpan01').innerHTML = 'Hi from onMouseOver'
-}"> bold and onMouseOver </b> this isn't<br><br>
+This is <b onMouseMove="{
+document.getElementById('mySpan01').innerHTML = 'Hi From Mouse'
+}"> bold and onMouseMove </b> this isn't<br><br><br>
 
-bold and onMouseOver </b> <this is'nt<br>
+This is <b onMouseOver="{
+document.getElementById('mySpan01').innerHTML = 'Hi From On Mouse Over'
+}"> bold and onMouseOver </b> this isn't<br><br><br>
+
+This is <b onMouseOut="{
+document.getElementById('mySpan01').innerHTML = 'Hi From On Mouse Out'
+}"> bold and onMouseOut </b> this isn't<br><br><br>
+
+This is <b>Bold and onResize</b> this isn't <br>
+
+
+
+
+
+
+
+
+<body onresize="myFunction()">
+
+<p>Try to resize the browser window to display the windows height and width.</p>
+
+<p id="demo"></p><br><br>
+
+<script>
+function myFunction() {
+  var h = window.outerHeight;
+  var w = window.outerWidth;
+  var txt = "Window size: width=" + w + ", height=" + h;
+  document.getElementById("demo").innerHTML = txt;
+ document.getElementById('mySpan01').innerHTML = 'Hi Is Your Screen Width '+ w +''
+}
+
+
+
+
+</script>
+</html
 </body>
+
+
+
+
+
+
+
