@@ -1,4 +1,5 @@
 
+
 </style>
 </head>
 <body>
@@ -32,7 +33,7 @@ alert('x: '+ x)
    var my1 = document.getElementById('myTextIn1').value  
    var my2 = document.getElementById('myTextIn2').value  
         
-   document.getElementById('myDiv124').innerHTML +=  'Numbers added as floating point (decimal) numbers ' +  my1 + ' + ' +  my2 + ' = ' +  (parseFloat(my1) + parseFloat(my2))  + '<br>'                                         
+  document.getElementById('myDiv124').innerHTML +=  'Numbers added as floating point (decimal) numbers ' +  my1 + ' + ' +  my2 + ' = ' +  (parseFloat(my1) + parseFloat(my2))  + '<br>'                                    
    
                                                              
                                                               
@@ -43,21 +44,95 @@ alert('x: '+ x)
 
 Pick a number <input id="myText03" type="number" value= >
 
-<input id="myButton124" type="button" value="Add the numbers" onclick="{
+<input id="myButton124" type="button" value="Find my number" onclick="{
       
-  //alert(parseInt(document.getElementById('myText03').style.left))
-
-
- alert(parseInt(document.getElementById('myDiv131').innerHTML = this.myName + ' is a great cat who is ' + this.myAge + ' years old<br>'                                  )
-
+ var mynumber = document.getElementById('myText03').value  
+        
+  document.getElementById('myDiv222').innerHTML +=  'Your number is '+ mynumber +' <br>'
 
 
 
                                                              
                                                               
 }">
+<div id='myDiv222'></div><br><br>
 
-<div id='myDiv131'>...</div><br><br>
+
+Pick a number <input id="myText04" type="number" value= >
+
+<input id="myButton124" type="button" value="Square Number" onclick="{
+      
+ var mySubnumber = document.getElementById('myText04').value  
+        
+  document.getElementById('myDiv444').innerHTML +=  'Your number is '+  (parseFloat(mySubnumber) + parseFloat(mySubnumber))  +' <br>'
+
+
+
+                                                             
+                                                              
+}">
+<div id='myDiv444'></div><br><br>
+
+
+
+
+Pick numbers <input type="number" id="myText06" value="" size="30">  - <input type="number" id="myText07" value="" size="30"> 
+
+
+<input id="myButton124" type="button" value="subtract number" onclick="{
+      
+ var mysubnumber01 = document.getElementById('myText06').value  
+ var mysubnumber02 = document.getElementById('myText07').value  
+        
+  document.getElementById('myDiv555').innerHTML +=  'Your number is '+  (parseFloat(mysubnumber01) - parseFloat(mysubnumber02))  +' <br>'
+
+}">
+<div id='myDiv555'></div><br><br>
+
+
+
+
+Your name <input id="myText08" type="text" value= >
+
+<input id="myButton124" type="button" value="my name is" onclick="{
+      
+ var myname = document.getElementById('myText08').value  
+        
+  document.getElementById('myDiv666').innerHTML +=  ''+ myname +': My name is '+ myname +' <br> nice to meet you '+ myname +''
+
+
+
+                                                             
+                                                              
+}">
+<div id='myDiv666'></div><br><br>
+
+
+How Old are you <input id="myText09" type="number" value= >
+
+<input id="myButton124" type="button" value="Years Old" onclick="{
+
+
+ var myname = document.getElementById('myText08').value        
+ var myage = document.getElementById('myText09').value  
+        
+  document.getElementById('myDiv777').innerHTML +=  ''+ myname +': I Am '+ myage +' Years Old <br> Awsome Thank you '+ myname +''
+
+
+
+                                                             
+                                                              
+}">
+<div id='myDiv777'></div><br><br>
+
+
+
+
+
+
+
+
+
 
 
 
