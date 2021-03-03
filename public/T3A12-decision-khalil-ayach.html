@@ -1,1 +1,265 @@
-dfdf
+<h1 align=center>T3A12-Decisions-if-Khalil-Ayach</h1>
+
+<pre>
+
+|| means or
+&& means And
+! means not 
+</pre>
+
+
+
+
+add an input text. a button and a span 
+
+
+
+
+
+
+<br><br>
+
+
+
+Pick a number That is equal to three <input id="myText001" type="number" value= >
+
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber001 = document.getElementById('myText001').value  
+        
+  document.getElementById('myDiv111').innerHTML +=  'Your number is '+ mynumber001 +' <br>'
+
+
+
+if(mynumber001 == 3)
+{
+
+  document.getElementById('myDiv111').innerHTML +=  'You Won <br>'
+
+
+} 
+
+
+                                                             
+                                                              
+}">
+<div id='myDiv111'></div><br><br>
+
+
+
+
+
+
+
+
+Pick a number that is not three <input id="myText03" type="number" value= >
+
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber = document.getElementById('myText03').value  
+        
+  document.getElementById('myDiv222').innerHTML +=  'Your number is '+ mynumber +' <br>'
+
+
+
+if(mynumber != 3)
+{
+
+  document.getElementById('myDiv222').innerHTML +=  'Not the number <br>'
+
+
+} 
+
+
+                                                             
+                                                              
+}">
+<div id='myDiv222'></div><br><br>
+
+
+
+
+
+
+Pick a number between 3 and 11<input id="myText01" type="number" value= >
+ 
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber01 = document.getElementById('myText01').value  
+        
+  document.getElementById('myDiv100').innerHTML +=  'Your number is '+ mynumber01 +' <br>'
+
+
+if(mynumber01 < 11 && mynumber01 > 3)
+{
+
+document.getElementById('myDiv100').innerHTML +=  'You Won <br>'
+
+
+}
+                                                             
+                                                              
+}">
+<div id='myDiv100'></div><br><br>
+
+
+
+<br>
+
+
+Pick a number that is three and is not three <input id="myText04" type="number" value= >
+
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber03 = document.getElementById('myText04').value  
+        
+  document.getElementById('myDiv333').innerHTML +=  'Your number is '+ mynumber03 +' <br>'
+
+
+
+if(mynumber03 == 3)
+{
+
+  document.getElementById('myDiv333').innerHTML +=  'You Won <br>'
+
+
+} 
+else {
+
+document.getElementById('myDiv333').innerHTML +=  'Not the number try another <br>'
+}
+
+                                                             
+                                                              
+}">
+<div id='myDiv333'></div><br><br>
+
+
+
+
+
+<br>
+
+
+Pick numbers that are equal to 12 <input type="number" id="myText05" value="" size="30">  + <input type="number" id="myText06" value="" size="30"> 
+
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var myAddNum01 = document.getElementById('myText05').value  
+ var myAddNum02 = document.getElementById('myText06').value  
+
+
+
+mySumNum = document.getElementById('myText06') + ('myText05').value  
+
+document.getElementById('myDiv444').innerHTML =  ''+  (parseFloat(myAddNum01) + parseFloat(myAddNum02))  +' <br>'
+
+
+
+
+                
+
+if(mySumNum = 12) {
+
+document.getElementById('myDiv444').innerHTML +=  'Good Job <br>'
+
+}
+
+                                                              
+}">
+
+<div id='myDiv444'></div><br><br>
+
+
+
+Pick a number that is equal to two or three <input id="myText08" type="number" value= >
+
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber05 = document.getElementById('myText08').value  
+        
+  document.getElementById('myDiv555').innerHTML +=  'Your number is '+ mynumber05 +' <br>'
+
+
+
+if(mynumber05 == 3 || mynumber05 == 2)
+{
+
+  document.getElementById('myDiv555').innerHTML +=  'You Won <br>'
+
+
+} 
+
+
+                                                             
+                                                              
+}">
+<div id='myDiv555'></div><br><br>
+
+
+
+
+
+
+Pick a number that is less than 4 and greater than 10<input id="myText006" type="number" value= >
+ 
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber006 = document.getElementById('myText006').value  
+        
+  document.getElementById('myDiv0666').innerHTML +=  'Your number is '+ mynumber006 +' <br>'
+
+
+if(mynumber006 > 10 && mynumber006 < 4)
+{
+
+document.getElementById('myDiv0666').innerHTML +=  'You Won <br>'
+
+
+}
+                                                             
+                                                              
+}">
+<div id='myDiv0666'></div><br><br>
+
+
+
+
+
+Pick a number that is between 11 and 3, and a number that is not<input id="myText07" type="number" value= >
+
+<input id="myButton124" type="button" value="Find my number" onclick="{
+      
+ var mynumber07 = document.getElementById('myText07').value  
+        
+  document.getElementById('myDiv777').innerHTML +=  'Your number is '+ mynumber07 +' <br>'
+
+
+
+if(mynumber07 < 11 && mynumber07 > 3)
+{
+
+  document.getElementById('myDiv777').innerHTML +=  'You Won <br>'
+
+
+} 
+else {
+
+document.getElementById('myDiv777').innerHTML +=  'Not the number try another <br>'
+}
+
+                                                             
+                                                              
+}">
+<div id='myDiv777'></div><br><br>
+
+
+
+
+
+
+
+
+
+
+
