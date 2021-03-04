@@ -145,23 +145,23 @@ Pick numbers that are equal to 12 <input type="number" id="myText05" value="" si
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
- var myAddNum01 = document.getElementById('myText05').value  
- var myAddNum02 = document.getElementById('myText06').value  
+ var myAddNum01 = parseFloat(document.getElementById('myText05').value)  
+ var myAddNum02 = parseFloat(document.getElementById('myText06').value)  
 
 
 
-mySumNum = document.getElementById('myText06') + ('myText05').value  
+mySumNum = myAddNum01 + myAddNum02
 
-document.getElementById('myDiv444').innerHTML =  ''+  (parseFloat(myAddNum01) + parseFloat(myAddNum02))  +' <br>'
+document.getElementById('myDiv444').innerHTML =  mySumNum 
 
 
 
 
                 
 
-if(mySumNum = 12) {
+if(mySumNum == 12) {
 
-document.getElementById('myDiv444').innerHTML +=  'Good Job <br>'
+document.getElementById('myDiv444').innerHTML +=  '<br>Good Job <br>'
 
 }
 
