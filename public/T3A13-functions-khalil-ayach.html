@@ -3,29 +3,154 @@
 
 
 <script>
-function myBasicGun(){
 
-document.getElementById('mySpan01').innerHTML = "wow" 
-
-}
 
 function myAdvancedFun(x, y){
 return x*y
 
 }
+
+
+
+
+function myFun1(z, f){
+return z*f
+
+}
+
+
+function myFun2(a, b){
+return a+b
+
+}
+
+
+function myFun3(c, d){
+return c/d
+
+}
+
+
+function myFun4(e, f){
+return e-f
+
+}
+
+
+function myFun5(g, h){
+return g/h
+
+}
+
+
+function myFun6(i, j){
+return i/j
+
+}
+
+
+function myFun7(x, y){
+return x-y
+
+}
+
+
+
+
+
+
+
+
+
+
+
 </script>
+<pre>
+Find all the numbers equal to 2<br>
+</pre>
+<input id="myText01" type=text value=> + <input id="myText02" type=text value=> 
+<input id="myButton111" type="button" value="Add Numbers" onclick="{
 
-<input id="myText01" type=text value=3> <br><br>
-<input type=button value="Run function" onclick= "{ 
+var myAddNum01 = parseFloat(document.getElementById('myText01').value)
+var myAddNum02 = parseFloat(document.getElementById('myText02').value)
 
-//alert('button work')
-myBasicFun()
+mySumNum = myAddNum01 + myAddNum02
 
-}">
+document.getElementById('mySpan01').innerHTML = ''+ mySumNum +' '
 
-<input type=button value="Advanced" onclick= "{
-document.getElementById('mySpan01').innerHTML = myAdvancedFun(3,4)
 
-}"> <br><br>
+if(mySumNum == 2){
+document.getElementById('mySpan01').innerHTML += 'Good job <br>'
 
-<spann id="mySpan01">...</Span><br><br>
+
+
+}
+
+
+}"> 
+
+<br>
+
+
+
+<input type=button value="0*2" onclick= "{
+document.getElementById('mySpan01').innerHTML =  ''+ myAdvancedFun(0,2) +'  Try again '
+
+
+}"> <br>
+
+
+
+<input type=button value="1*2" onclick= "{
+document.getElementById('mySpan01').innerHTML = ''+ myFun1(1,2) +' Good job '
+
+}"> <br>
+
+
+<input type=button value="2+6" onclick= "{
+document.getElementById('mySpan01').innerHTML = ''+ myFun2(2,6) +' Try again'
+
+}"> <br>
+
+
+
+<input type=button value="6/2" onclick= "{
+document.getElementById('mySpan01').innerHTML = ''+ myFun3(6,2) +' Try again'
+
+}"> 
+
+<br>
+
+
+<input type=button value="6-4" onclick= "{
+document.getElementById('mySpan01').innerHTML = ''+ myFun4(6,4) +' Good job'
+
+}"> 
+
+
+<br>
+
+
+<input type=button value="6/0" onclick= "{
+document.getElementById('mySpan01').innerHTML = ''+ myFun5(6,0) +' Incorrect'
+
+}">  <br>
+
+<input type=button value="4-3" onclick= "{
+document.getElementById('mySpan01').innerHTML = ''+ myFun7(4,3) +' Try again'
+
+}">  <br>
+
+
+<br>
+
+
+
+<span id="mySpan01"> 
+
+
+</span><br>
+
+
+
+
