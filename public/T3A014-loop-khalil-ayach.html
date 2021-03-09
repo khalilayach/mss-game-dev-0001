@@ -75,5 +75,35 @@ myTemp += ''+ i +' <br>';
 
 }"><br><br>
 
+
+
+
+
+Loop this many times <input type="number" id="myTextLoop" value="3" size="10"> 
+    
+<input id="myButton125" type="button" value="For Loop" onclick="{
+                                                               
+    document.getElementById('mySpan01').innerHTML = ''   // blank out the DIV  
+                                                               
+    for (myLoop = 0;  myLoop <= document.getElementById('myTextLoop').value;    myLoop++){   
+                                                               
+       document.getElementById('mySpan01').innerHTML += ''+ myLoop+'<br>'  
+                                                               
+    }
+                                                               
+}">
+
+<br><br>
+
+
+
+
+
+
+
 <span id="mySpan01">...</Span><br><br>
+
+
+
+
 
