@@ -21,7 +21,7 @@ add an input text. a button and a span
 
 
 
-Pick a number That is equal to three <input id="myText001" type="number" value= >
+Pick a number That is equal to three <input id="myText001" type="number" value="3">
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -52,7 +52,7 @@ if(mynumber001 == 3)
 
 
 
-Pick a number that is not three <input id="myText03" type="number" value= >
+Pick a number that is not three <input id="myText03" type="number" value="2">
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -81,7 +81,7 @@ if(mynumber != 3)
 
 
 
-Pick a number between 3 and 11<input id="myText01" type="number" value= >
+Pick a number between 3 and 11<input id="myText01" type="number" value="5">
  
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -107,7 +107,7 @@ document.getElementById('myDiv100').innerHTML +=  'You Won <br>'
 <br>
 
 
-Pick a number that is three and is not three <input id="myText04" type="number" value= >
+Pick a number that is three and is not three <input id="myText04" type="number" value= 3 >
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -141,7 +141,7 @@ document.getElementById('myDiv333').innerHTML +=  'Not the number try another <b
 <br>
 
 
-Pick numbers that are equal to 12 <input type="number" id="myText05" value="" size="30">  + <input type="number" id="myText06" value="" size="30"> 
+Pick numbers that are equal to 12 <input type="number" id="myText05" value="6" size="30">  + <input type="number" id="myText06" value="6" size="30"> 
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -152,7 +152,7 @@ Pick numbers that are equal to 12 <input type="number" id="myText05" value="" si
 
 mySumNum = myAddNum01 + myAddNum02
 
-document.getElementById('myDiv444').innerHTML =  mySumNum 
+document.getElementById('myDiv444').innerHTML =  ''+ mySumNum +' <br>' 
 
 
 
@@ -161,7 +161,7 @@ document.getElementById('myDiv444').innerHTML =  mySumNum
 
 if(mySumNum == 12) {
 
-document.getElementById('myDiv444').innerHTML +=  '<br>Good Job <br>'
+document.getElementById('myDiv444').innerHTML +=  'Good Job <br>'
 
 }
 
@@ -172,7 +172,7 @@ document.getElementById('myDiv444').innerHTML +=  '<br>Good Job <br>'
 
 
 
-Pick a number that is equal to two or three <input id="myText08" type="number" value= >
+Pick a number that is equal to two or three <input id="myText08" type="number" value="2">
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -201,7 +201,7 @@ if(mynumber05 == 3 || mynumber05 == 2)
 
 
 
-Pick a number that is less than 4 and greater than 10<input id="myText006" type="number" value= >
+Pick a number that is less than 4 and greater than 10<input id="myText006" type="number" value="5">
  
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
@@ -210,7 +210,7 @@ Pick a number that is less than 4 and greater than 10<input id="myText006" type=
   document.getElementById('myDiv0666').innerHTML +=  'Your number is '+ mynumber006 +' <br>'
 
 
-if(mynumber006 > 10 && mynumber006 < 4)
+if(mynumber006 > 10 || mynumber006 < 4)
 {
 
 document.getElementById('myDiv0666').innerHTML +=  'You Won <br>'
@@ -226,7 +226,7 @@ document.getElementById('myDiv0666').innerHTML +=  'You Won <br>'
 
 
 
-Pick a number that is between 11 and 3, and a number that is not<input id="myText07" type="number" value= >
+Pick a number that is between 11 and 3, and a number that is not<input id="myText07" type="number" value= "5" >
 
 <input id="myButton124" type="button" value="Find my number" onclick="{
       
