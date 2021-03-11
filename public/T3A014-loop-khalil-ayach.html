@@ -1,21 +1,23 @@
-Version 0.0.6<br>
-<h1 align=center>T3A14-forloop.html</h1>
+myTemp += 'Loop Number: '+ i +' <br>';
+}
+document.getElementById('mySpan01').innerHTML = myTemp
 
-Store this input variable onto x:
-<input id="myText01" type=text value=3 > <br><br>
+}"><br><br>
 
 
 
 <input type=button value="Show X" onclick="{
 
+
 let myTemp='';
-for(let i=0; i<30; i++){
+for(let i=2; i<10; i++){
 
 myTemp += 'Loop Number: '+ i +' <br>';
 }
 document.getElementById('mySpan01').innerHTML = myTemp
 
 }"><br><br>
+
 
 
 <input type=button value="Show X" onclick="{
@@ -24,15 +26,79 @@ document.getElementById('mySpan01').innerHTML = myTemp
 let myTemp='';
 for(let i=0; i<10; i++){
 
-myTemp += 'Loop Number: '+ i +' <br>';
+myTemp += 'Your number is: '+ i +' <br>';
 }
 document.getElementById('mySpan01').innerHTML = myTemp
+
+
 
 }"><br><br>
 
 
 
 <input type=button value="Show X" onclick="{
+
+
+let myTemp='';
+for(let myLoop01=0; myLoop01<10; myLoop01++){
+
+myTemp += ''+ myLoop01 +' <br>';
+}
+
+ document.getElementById('mySpan01').innerHTML =  myTemp 
+
+}"><br><br>
+
+
+
+
+
+Loop this many times <input type="number" id="myTextLoop" value="3" size="10"> 
+    
+<input id="myButton125" type="button" value="For Loop" onclick="{
+                                                               
+    document.getElementById('mySpan01').innerHTML = ''   // blank out the DIV  
+                                                               
+    for (myLoop = 0;  myLoop <= document.getElementById('myTextLoop').value;    myLoop++){   
+                                                               
+       document.getElementById('mySpan01').innerHTML += ''+ myLoop+'<br>'  
+                                                               
+    }
+                                                               
+}">
+<br><br>
+
+
+<pre>
+Warning this button will crash your computer <br>
+</pre>
+
+
+<input type=button value="DO NOT CLICK THIS BUTTON" onclick="{
+
+let myTemp='';
+for(let myLoop02 = 0; myLoop02 < 30; myLoop02++){
+
+
+if(myLoop02 == 10){
+myLoop02 = 0
+
+}
+
+
+myTemp += 'Loop Number: '+ myLoop02 +' <br>';
+}
+document.getElementById('mySpan01').innerHTML = myTemp
+
+
+
+}"><br><br>
+
+
+<br><br>
+
+
+
 
 
 let myTemp='';
