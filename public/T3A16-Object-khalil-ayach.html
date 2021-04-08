@@ -1,21 +1,32 @@
 <h1 align=center>T3A16-objects-Khalil-ayach.html</h1>
 
-Enter an age into the object: <input id="myText01" type=text value=17><br><br>
+Enter an age into the class: <input id="myText01" type=text value=5 ><br><br>
+Enter an age into the class: <input id="myText02" type=text value=John ><br><br>
+Enter an age into the class: <input id="myText03" type=text value=MissionBc ><br><br>
 
-<input type=button value="Make and Show Object" onclick="{
-
-let myObject = {
-'firstName': 'John',
- 'age': 6
-
-
-}
-
-document.getElementById('Span01').innerHTML ='myObject.firstName:' + myObject.firstName
+<input id="myButton131" type="button" value="Make a class myAnimal and run the method myShow()" onclick="{
 
 
 
 
-}"> <br><br>
 
-<div id='Span01'>...</div><br>
+class myAnimal {
+    constructor(passName, passAge, passBirth) {
+       this.myName = passName;
+       this.myAge = passAge; 
+       this.myBirth = passBirth;
+       this. myAge = document.getElementById('myText01').value 
+       this. myName = document.getElementById('myText02').value  
+       this. myBirth = document.getElementById('myText02').value 
+    }
+    myShow(){
+       document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName + ' You Are ' +  this.myAge + ' Born In ' + this.myBirth 
+    }
+ }  // end class myAnimal
+                                                             
+                                             
+   myPet = new myAnimal('+ myName +', '+ myAge +' , '+ myBirth +')
+   myPet.myShow()                                                                           
+}"><br><br>
+
+<div id='myDiv131'>...</div><br>
