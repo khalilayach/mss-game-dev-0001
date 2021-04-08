@@ -2,16 +2,20 @@ Version 0Version 0.0.1
 
 <h1 align=center>T3A17-bonus-class-name</h1>
 
-Enter an age into the class: <input id="myText01" type=text value=17 ><br><br>
+Enter an age into the class: <input id="myText01" type=text value=5 ><br><br>
 
 <input id="myButton131" type="button" value="Make a class myAnimal and run the method myShow()" onclick="{
+
+
+
+
 
 class myAnimal {
     constructor(passName, passAge, passBirth) {
        this.myName = passName;
-       this.myAge = passAge;
+       this.myAge = passAge; 
        this.myBirth = passBirth;
-        
+       this. myAge = document.getElementById('myText01').value   
     }
     myShow(){
        document.getElementById('myDiv131').innerHTML = 'Hello '+ this.myName + ' You Are ' +  this.myAge + ' Born In ' + this.myBirth 
@@ -19,7 +23,7 @@ class myAnimal {
  }  // end class myAnimal
                                                              
                                              
-   myPet = new myAnimal('Fluffy', 5, 'Mission Bc')
+   myPet = new myAnimal('Fluffy', '+ myAge +' , 'Mission Bc')
    myPet.myShow()                                                                           
 }"><br><br>
 
