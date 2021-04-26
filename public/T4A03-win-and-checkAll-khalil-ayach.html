@@ -25,22 +25,10 @@ function myHitOther(my1,my2){
 
 
 
-<h1 align=center>T4A02-maze-Fred.html</h1>
-
-What we are going to do is take CSS positioning and Forms button and make something that moves across the screen.<br>
+<h1 align=center>T4A03-Win-and-CheckAll-Khalil.html</h1>
 
 
 
-
-<input type=button value="Move 10 pixels up" onClick="{
-   document.myXpixels = -10  // use -10 for going to the left
-                          
-document.getElementById('mySpan01').style.top = 
-parseInt(document.getElementById('mySpan01').style.top) + document.myXpixels
-
-
-                        
-}"><br>
 
 
 
@@ -50,10 +38,7 @@ parseInt(document.getElementById('mySpan01').style.top) + document.myXpixels
 document.getElementById('mySpan01').style.left = 
 parseInt(document.getElementById('mySpan01').style.left) + document.myXpixels
 
-if(myHitOther('mySpan01', 'mySpan03')){
-   document.getElementById('mySpan01').style.left = 
-      parseInt(document.getElementById('mySpan01').style.left) +  ( -1 * document.myXpixels)
-}
+
 
                         
 }">
@@ -67,8 +52,8 @@ document.getElementById('mySpan01').style.left =
 parseInt(document.getElementById('mySpan01').style.left) + document.myXpixels
 
 if(myHitOther('mySpan01', 'mySpan02')){
-   document.getElementById('mySpan01').style.left = 
-      parseInt(document.getElementById('mySpan01').style.left) +  ( -1 * document.myXpixels)
+    alert('You Win!')
+    location = 'https://www.google.ca/?safe=active&ssui=on'
 }
 
                         
@@ -83,26 +68,11 @@ if(myHitOther('mySpan01', 'mySpan02')){
 
 
 
-
-
-<input type=button value="Move 10 pixels down" onClick="{
-   document.myXpixels = +10  // use -10 for going to the left
-                          
-document.getElementById('mySpan01').style.top = 
-parseInt(document.getElementById('mySpan01').style.top) + document.myXpixels
-
-if(myHitOther('mySpan01', 'mySpan04')){
-   document.getElementById('mySpan01').style.top = 
-      parseInt(document.getElementById('mySpan01').style.top) +  ( -1 * document.myXpixels)
-}
-
                         
-}">
+
 
 
 
 
 <span id="mySpan01" style="position:absolute; left:100; top:150; width:45; height:30">span 1</span><br>
-<span id="mySpan02" style="position:absolute; left:200; top:150; width:45; height:30">span 2</span><br>
-<span id="mySpan03" style="position:absolute; left:0; top:150; width:45; height:30">span 2</span><br>
-<span id="mySpan04" style="position:absolute; left:100; top:200; width:45; height:30">span 1</span><br>
+<span id="mySpan02" style="position:absolute; left:300; top:150; width:45; height:30">span 2</span><br>
