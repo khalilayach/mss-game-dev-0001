@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Project number 2</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <canvas id="canvas" width="360" height="180">
+      <script>
+
+var ctx;
+var Update;
+var Object1;
+
+ctx = document.querySelector("canvas").getContext("2d");
+
+ctx.width = 360;
+ctx.height;
+
+
+Object1 = {
+  width: 32,
+  height: 32,
+  x: 140,
+  y: 0,
+  ObjectSpeed: -0.12,
+
+  x_velocity: 0
+};
+
+
+
+Update = function () {
+
+  Object1.x_velocity += Object1.ObjectSpeed;
+  Object1.x += Object1.x_velocity;
+  Object1.x_velocity *= 0.9;
+
+  ctx.clearRect(0, 0, 360, 360);
+
+  ctx.fillStyle = "#C0C0C0";
+  ctx.fillRect(0, 0, 360, 180);
+
+
+ ctx.fillStyle = "#000000";
+  ctx.fillRect(Object1.x, Object1.y, Object1.width, Object1.height);
+
+
+
+  if (Object1.x < 0) {
+    Object1.ObjectSpeed = 0.12;
+  }
+
+  if (Object1.x > 340) {
+    Object1.ObjectSpeed = -0.12;
+  }
+
+window.requestAnimationFrame(Update);
+
+
+}
+
+Update();
+
+</script>
+    </canvas>
+  </body>
+</html>
