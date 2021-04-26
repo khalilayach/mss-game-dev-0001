@@ -29,23 +29,18 @@ function myHitOther(my1,my2){
 
 What we are going to do is take CSS positioning and Forms button and make something that moves across the screen.<br>
 
-<input type=button value="Move 10 pixels right" onClick="{
-   document.myXpixels = +10  // use -10 for going to the left
-                          
-document.getElementById('mySpan01').style.left = 
-parseInt(document.getElementById('mySpan01').style.left) + document.myXpixels
 
-if(myHitOther('mySpan01', 'mySpan02')){
-   document.getElementById('mySpan01').style.left = 
-      parseInt(document.getElementById('mySpan01').style.left) +  ( -1 * document.myXpixels)
-}
+
+
+<input type=button value="Move 10 pixels up" onClick="{
+   document.myXpixels = -10  // use -10 for going to the left
+                          
+document.getElementById('mySpan01').style.top = 
+parseInt(document.getElementById('mySpan01').style.top) + document.myXpixels
+
 
                         
-}">
-
-
-
-
+}"><br>
 
 
 
@@ -64,15 +59,29 @@ if(myHitOther('mySpan01', 'mySpan03')){
 }">
 
 
-<input type=button value="Move 10 pixels up" onClick="{
-   document.myXpixels = -10  // use -10 for going to the left
-                          
-document.getElementById('mySpan01').style.top = 
-parseInt(document.getElementById('mySpan01').style.top) + document.myXpixels
 
+<input type=button value="Move 10 pixels right" onClick="{
+   document.myXpixels = +10  // use -10 for going to the left
+                          
+document.getElementById('mySpan01').style.left = 
+parseInt(document.getElementById('mySpan01').style.left) + document.myXpixels
+
+if(myHitOther('mySpan01', 'mySpan02')){
+   document.getElementById('mySpan01').style.left = 
+      parseInt(document.getElementById('mySpan01').style.left) +  ( -1 * document.myXpixels)
+}
 
                         
 }">
+
+
+
+
+
+<br>
+
+
+
 
 
 
@@ -97,3 +106,4 @@ if(myHitOther('mySpan01', 'mySpan04')){
 <span id="mySpan02" style="position:absolute; left:200; top:150; width:45; height:30">span 2</span><br>
 <span id="mySpan03" style="position:absolute; left:0; top:150; width:45; height:30">span 2</span><br>
 <span id="mySpan04" style="position:absolute; left:100; top:200; width:45; height:30">span 1</span><br>
+
