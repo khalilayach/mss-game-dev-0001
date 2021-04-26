@@ -25,7 +25,7 @@ Object1 = {
   height: 32,
   x: 140,
   y: 0,
-  ObjectSpeed: -0.12,
+  ObjectSpeed: 0.12,
 
   x_velocity: 0
 };
@@ -108,6 +108,11 @@ Update = function () {
 
   if (Player.x > 340) {
     Player.x -= Player.x_velocity * 1.114;
+  }
+
+
+  if (Player.x > 330) {
+     location = 'https://www.google.ca/?safe=active&ssui=on'
   }
 
   //Object collistion
