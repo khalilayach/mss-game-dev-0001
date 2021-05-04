@@ -1,0 +1,307 @@
+<h1 align=center> T3A07-code-khalil-ayach</h1>
+
+
+
+
+
+<script>
+
+//0
+var controll0 = true
+//1
+var controll1 = false
+
+
+function myHitOther(my1,my2){
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+
+</script>
+
+
+
+
+
+
+
+<body onKeyDown="{
+let myArrowKey = event.keyCode
+let myAlphaKey = event.key
+
+
+// 0
+if(myArrowKey == 37 && controll0 == true) //left
+{
+  document.getElementById('mySpan01').style.left = 
+ parseInt (document.getElementById('mySpan01').style.left) - 10
+
+
+
+if(myHitOther('myWall04', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan01').style.left =   
+parseInt(document.getElementById('mySpan01').style.left) + 10
+
+}
+
+
+}
+
+
+
+if(myArrowKey == 40 && controll0 == true) //down
+{
+  document.getElementById('mySpan01').style.top = 
+ parseInt (document.getElementById('mySpan01').style.top) + 10
+
+
+if(myHitOther('myWall01', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan01').style.top =   
+parseInt(document.getElementById('mySpan01').style.top) - 10
+
+}
+
+
+
+
+}
+
+
+if(myArrowKey == 38 && controll0 == true) //up
+{
+  document.getElementById('mySpan01').style.top = 
+ parseInt (document.getElementById('mySpan01').style.top) - 10
+
+
+
+if(myHitOther('myWall02', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan01').style.top =   
+parseInt(document.getElementById('mySpan01').style.top) + 10
+
+}
+
+
+}
+
+
+
+if(myArrowKey == 39 && controll0 == true) //right
+{
+  document.getElementById('mySpan01').style.left = 
+ parseInt (document.getElementById('mySpan01').style.left) + 10
+
+if(myHitOther('myWall03', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan01').style.left =   
+parseInt(document.getElementById('mySpan01').style.left) - 10
+
+}
+
+if(myHitOther('myWall05', 'mySpan01'))
+{
+  
+  location = 'https://www.google.ca/?safe=active&ssui=on'
+}
+
+}
+
+
+
+
+
+
+//1
+
+if(myArrowKey == 37 && controll1 == true) //left
+{
+  document.getElementById('mySpan02').style.left = 
+ parseInt (document.getElementById('mySpan02').style.left) - 10
+
+
+
+
+
+
+if(myHitOther('myWall03', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) + 10
+
+}
+
+
+if(myHitOther('myWall04', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan01').style.left =   
+parseInt(document.getElementById('mySpan01').style.left) + 10
+
+}
+//b
+
+if(myHitOther('myButton1', 'mySpan02'))
+{
+  
+  document.getElementById('myWall03').style.top =   
+parseInt(document.getElementById('myWall03').style.top) - 1000
+
+}
+
+}
+
+
+
+if(myArrowKey == 40 && controll1 == true) //down
+{
+  document.getElementById('mySpan02').style.top = 
+ parseInt (document.getElementById('mySpan02').style.top) + 10
+
+
+if(myHitOther('myWall01', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan02').style.top =   
+parseInt(document.getElementById('mySpan02').style.top) - 10
+
+}
+
+//b
+
+if(myHitOther('myButton1', 'mySpan02'))
+{
+  
+  document.getElementById('myWall03').style.top =   
+parseInt(document.getElementById('myWall03').style.top) - 1000
+
+}
+
+
+}
+
+
+if(myArrowKey == 38 && controll1 == true) //up
+{
+  document.getElementById('mySpan02').style.top = 
+ parseInt (document.getElementById('mySpan02').style.top) - 10
+
+
+
+if(myHitOther('myWall02', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan02').style.top =   
+parseInt(document.getElementById('mySpan02').style.top) + 10
+
+}
+
+
+//b
+
+if(myHitOther('myButton1', 'mySpan02'))
+{
+  
+  document.getElementById('myWall03').style.top =   
+parseInt(document.getElementById('myWall03').style.top) - 1000
+
+}
+
+}
+
+
+
+if(myArrowKey == 39 && controll1 == true) //right
+{
+  document.getElementById('mySpan02').style.left = 
+ parseInt (document.getElementById('mySpan02').style.left) + 10
+
+if(myHitOther('myWall03', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) - 10
+
+}
+
+if(myHitOther('myWall05', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) - 10
+
+}
+
+
+
+//b
+
+if(myHitOther('myButton1', 'mySpan02'))
+{
+  
+  document.getElementById('myWall03').style.top =   
+parseInt(document.getElementById('myWall03').style.top) - 1000
+
+}
+
+}
+
+
+if(myAlphaKey == 1){
+
+controll0 = false
+controll1 = true
+
+}
+
+
+if(myAlphaKey == 0){
+
+controll0 = true
+controll1 = false
+
+}
+
+}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="mySpan01" style="position:absolute; left:180; top:150; width:5; height:19;"><b> 0 </b></span><br>
+<span id="mySpan02" style="position:absolute; left:300; top:170; width:5; height:19;"><b> 1 </b></span><br>
+
+<span id="myWall01" style="position:absolute; left:119; top:200; width:730; height:30;"> l1l0101011101110101011100001001l01010111011101010111000111l1l0000011101110101011100001001l01111<br>0l000101011101111001011100101001l01010111001101010111000111l1l0101011101110101011100001001l0100<br>l1l0101011101110101011100001001l01010111011101010111000111l1l0101011101110101011100001001l01010 </span><br>
+<span id="myWall02" style="position:absolute; left:119; top:100; width:730; height:40;"> l1l0101011101110101011100001001l01010111011101010111000111l1l0000011101110101011100001001l01111<br>0l000101011101111001011100101001l01010111001101010111000111l1l0101011101110101011100001001l0100<br>l1l0101011101110101011100001001l01010111011101010111000111l1l0101011101110101011100001001l01010 </span><br>
+<span id="myWall03" style="position:absolute; left:220; top:150; width:20; height:30;"> 111<br>110<br>100 </span><br>
+<span id="myWall04" style="position:absolute; left:120; top:150; width:23; height:30;"> 101<br>111<br>011 </span><br>
+<span id="myWall05" style="position:absolute; left:820; top:150; width:12; height:30;"><i> 000<br>000<br>000</i></span><br>
+<span id="myButton1" style="position:absolute; left:790; top:150; width:10; height:10;"><i> B </i></span><br>
+
