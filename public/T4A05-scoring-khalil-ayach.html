@@ -32,6 +32,11 @@ function myCheckAll(){
   }
 
 
+  if(myHitOther('mySpan01', 'mySpan09')){
+    document.getElementById('myTextLife').value = parseInt(document.getElementById('myTextLife').value) - 1
+  }
+
+
 
   // your other checks go here
 
@@ -63,6 +68,12 @@ function myCheckAll(){
 
       if (myAlphaKey.toLowerCase() == 'arrowright') {
          document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + 10
+         myCheckAll()
+     }
+
+
+      if (myAlphaKey.toLowerCase() == 'arrowleft') {
+         document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) - 10
          myCheckAll()
      }
 
@@ -106,11 +117,9 @@ Life: <input id="myTextLife" type=number value=20 ><br><br>
    Span 1 </span><br>
 <span title="2" id="mySpan02" style="position:absolute; left:200; top:150; width:45; height:30"> 
    Span 2 </span><br>
-<span title="3" id="mySpan03" style="position:absolute; left:400; top:150; width:45; height:30"> 
-   Span 3 </span><br>
+<span title="3" id="mySpan03" style="position:absolute; left:400; top:150; width:45; height:30"> <<-Spike </span><br>
 
-<span title="9" id="mySpan09" style="position:absolute; left:900; top:150; width:45; height:30"> 
-   Span 9 </span><br>
+<span title="9" id="mySpan09" style="position:absolute; left:900; top:150; width:45; height:30"> Span3 </span><br>
 
 
 
@@ -120,4 +129,5 @@ Life: <input id="myTextLife" type=number value=20 ><br><br>
 
 
 ​
+
 
