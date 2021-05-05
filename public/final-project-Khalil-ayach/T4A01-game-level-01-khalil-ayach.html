@@ -131,7 +131,7 @@ if(myHitOther('myWall05', 'mySpan01'))
 
 //1
 
-if(myArrowKey == 37 && controll1 == true) //left
+if(myArrowKey == 37 && controll1 == true) //Left
 {
   document.getElementById('mySpan02').style.left = 
  parseInt (document.getElementById('mySpan02').style.left) - 10
@@ -139,6 +139,14 @@ if(myArrowKey == 37 && controll1 == true) //left
 
 
 
+
+if(myHitOther('myWall04', 'mySpan02'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) + 10
+
+}
 
 
 if(myHitOther('myWall03', 'mySpan02'))
@@ -158,6 +166,15 @@ parseInt(document.getElementById('mySpan01').style.left) + 10
 
 }
 //b
+
+if(myHitOther('myButton1', 'mySpan02'))
+{
+  
+  document.getElementById('myWall03').style.top =   
+parseInt(document.getElementById('myWall03').style.top) - 1000
+
+}
+
 
 if(myHitOther('myButton1', 'mySpan02'))
 {
@@ -229,7 +246,7 @@ parseInt(document.getElementById('myWall03').style.top) - 1000
 
 
 
-if(myArrowKey == 39 && controll1 == true) //right
+if(myArrowKey == 39 && controll1 == true) //Right
 {
   document.getElementById('mySpan02').style.left = 
  parseInt (document.getElementById('mySpan02').style.left) + 10
@@ -249,6 +266,8 @@ if(myHitOther('myWall05', 'mySpan02'))
 parseInt(document.getElementById('mySpan02').style.left) - 10
 
 }
+
+
 
 
 
