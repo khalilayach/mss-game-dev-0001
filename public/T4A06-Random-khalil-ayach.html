@@ -34,13 +34,7 @@ function myCheckAll(){
 
 // Bounce of windoow walls
 
-if (parseInt(document.getElementById('mySpan01').style.left) < 10) {  // if we hit the left wall
-    document.myXmove = document.myXmove * -1   // then bounce
-}
 
-if (parseInt(document.getElementById('mySpan01').style.left) + 65 > window.innerWidth) {  // if we hit the right wall
-    document.myXmove = document.myXmove * -1   // then bounce
-}
 
 
 // end of bounce code
@@ -64,7 +58,7 @@ if (parseInt(document.getElementById('mySpan01').style.left) + 65 > window.inner
 
 
 function myXAuto(){
-  document.getElementById('mySpan01').style.left = parseInt(document.getElementById('mySpan01').style.left) + document.myXmove
+  
   ranX1 = Math.floor(Math.random()*20) -10
   ranY1 = Math.floor(Math.random()*15) -8
   document.getElementById('mySpan02').style.left = parseInt(document.getElementById('mySpan02').style.left) + ranX1
@@ -79,6 +73,148 @@ function myXAuto(){
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+<body onKeyDown="{
+let myArrowKey = event.keyCode
+let myAlphaKey = event.key
+
+
+
+if(myArrowKey == 37) //left
+{
+  document.getElementById('mySpan01').style.left = 
+ parseInt (document.getElementById('mySpan01').style.left) - 10
+
+if(myHitOther('mySpan02', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) - 400
+
+}
+
+
+if(myHitOther('mySpan03', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan03').style.left =   
+parseInt(document.getElementById('mySpan03').style.left) - 800
+
+}
+
+}
+
+
+
+
+
+
+if(myArrowKey == 39) //right
+{
+  document.getElementById('mySpan01').style.left = 
+ parseInt (document.getElementById('mySpan01').style.left) + 10
+
+if(myHitOther('mySpan02', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) - 400
+
+}
+
+
+if(myHitOther('mySpan03', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan03').style.left =   
+parseInt(document.getElementById('mySpan03').style.left) - 800
+
+}
+
+}
+
+
+
+
+
+
+if(myArrowKey == 40) //down
+{
+  document.getElementById('mySpan01').style.top = 
+ parseInt (document.getElementById('mySpan01').style.top) + 10
+
+if(myHitOther('mySpan02', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) - 400
+
+}
+
+
+if(myHitOther('mySpan03', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan03').style.left =   
+parseInt(document.getElementById('mySpan03').style.left) - 800
+
+}
+
+}
+
+
+
+
+if(myArrowKey == 38) //up
+{
+  document.getElementById('mySpan01').style.top = 
+ parseInt (document.getElementById('mySpan01').style.top) - 10
+
+if(myHitOther('mySpan02', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan02').style.left =   
+parseInt(document.getElementById('mySpan02').style.left) - 400
+
+}
+
+
+if(myHitOther('mySpan03', 'mySpan01'))
+{
+  
+  document.getElementById('mySpan03').style.left =   
+parseInt(document.getElementById('mySpan03').style.left) - 800
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}">
+
+
+
+
+
 
 
 
@@ -106,6 +242,7 @@ function myXAuto(){
    Span 2 </span><br>
 <span title="3"  id="mySpan03" style="position:absolute; left:700; top:150; width:45; height:30"> 
    Span 3 </span><br>
+
 
 
 
