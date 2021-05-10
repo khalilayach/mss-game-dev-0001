@@ -1,14 +1,5 @@
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="OIP.jpg">
-
-
 
 <script>
-
-   // global variables here
-   let myGlobalX = 0
-   let myClock
-
-
 
 function myHitOther(my1,my2){
    left1   = parseInt(document.getElementById(my1).style.left)
@@ -43,7 +34,13 @@ function myCheckAll(){
 
 }
 
-
+// Auto moves your background
+  setInterval(function(){
+      document.getElementById('mySpanBackground').style.left = parseInt(document.getElementById('mySpanBackground').style.left) - 10
+      if (parseInt(document.getElementById('mySpanBackground').style.left) < -1900){
+       document.getElementById('mySpanBackground').style.left = '0px'
+      }
+  }, 30); 
 
 
 </script>
@@ -53,7 +50,7 @@ function myCheckAll(){
 
 
 
-<h1 align=center style="color:yellow;">T4A09-auto-background-better-name.html</h1>
+<h1 align=center style="color:yellow;">T4A08-auto-background-easy-fred.html</h1>
 
 
 <input type=button value="Move 10 pixels right" onClick="{
@@ -65,15 +62,10 @@ function myCheckAll(){
 }">
 
 
-<input type=button value="Auto Background Left" onclick="{
-  clearInterval(myClock)
-  let myTemp = '100px 0px'
-  myClock = setInterval(function(){
-      myGlobalX += 5
-      myTemp =  '100px ' + myGlobalX + 'px'       //  myGlobalX + 'px ' + '100px' 
-      document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 100)
-    
+<input type=button value="Helper Button" onClick="{
+                        
+  alert()
+                        
 }">
 
 
@@ -88,6 +80,5 @@ function myCheckAll(){
 <span id="mySpan03" style="  color:yellow; position:absolute; left:200; top:150; width:45; height:30"> 
    Span 3 </span><br>
 
-
-
-</body>
+<span id="mySpanBackground" style="z-index:-1; position:absolute; left:0; top:0; width:45; height:30"> 
+ <img src="OIP.jpg" width=3000> </span><br>
