@@ -94,6 +94,65 @@ function myYAuto(){
 <h1 align=center>T4A15-snake-name.html</h1>
 
 
+<i>use arrow keys</i>
+
+<body onKeyDown="{
+
+let myArrowKey = event.keyCode
+let myAlphaKey = event.key
+
+if(myArrowKey == 39) //right
+{
+     clearInterval(document.myXtimer)   
+    clearInterval(document.myYtimer)  
+    document.myXmove = 5          
+
+    document.getElementById('t2').style.left = parseInt(document.getElementById('mySpan01').style.left) - 20
+    document.getElementById('t3').style.left = parseInt(document.getElementById('mySpan01').style.left) - 40
+    document.getElementById('t4').style.left = parseInt(document.getElementById('mySpan01').style.left) - 60                
+    document.myXtimer = setInterval( myXAuto , document.myXspeed);
+
+}
+
+
+if(myArrowKey == 40) //down
+{
+    clearInterval(document.myXtimer)   
+    clearInterval(document.myYtimer)   
+    document.myYmove = 4                 
+    document.myYtimer = setInterval( myYAuto , document.myYspeed);
+}
+
+
+if(myArrowKey == 38) //up
+{
+    clearInterval(document.myXtimer)   
+    clearInterval(document.myYtimer)   
+    document.myYmove = -4                 
+    document.myYtimer = setInterval( myYAuto , document.myYspeed);
+}
+
+
+
+if(myArrowKey == 37) //left
+{
+    clearInterval(document.myXtimer)   
+    clearInterval(document.myYtimer)  
+    document.myXmove = -5            
+
+    document.getElementById('t2').style.left = parseInt(document.getElementById('mySpan01').style.left) + 50
+    document.getElementById('t3').style.left = parseInt(document.getElementById('mySpan01').style.left) + 70
+    document.getElementById('t4').style.left = parseInt(document.getElementById('mySpan01').style.left) + 90
+
+               
+    document.myXtimer = setInterval( myXAuto , document.myXspeed);
+}
+
+
+}">
+
+
+
 <input type=button value="Right" onClick="{
     clearInterval(document.myXtimer)   
     clearInterval(document.myYtimer)  
