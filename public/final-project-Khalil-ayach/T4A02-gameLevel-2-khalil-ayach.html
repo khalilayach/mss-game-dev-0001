@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body onKeyDown="{
+		let myAlphaKey = event.key
+
+		if(myAlphaKey == 1){
+
+			Controlll1 = false
+			Controlll2 = true
+			
+			}
+
+
+			if(myAlphaKey == 0){
+
+				Controlll1 = true
+				Controlll2 = false
+				
+				}
+
+
+	}">
+    <div id="app"></div>
+		<canvas id="canvas" width="650" height="220">
+		<script>
+			 var Player;
+        var ctx;
+        var Update;
+        var controller;
+        var invisableLineRight;
+        var invisableLineLeft;
+        var invisableLineUp;
+				var invisableLineDown;
+				var wall1;
+				var Other1;
+        var myCol;
+
+				var Controlll1 = true;
+				var Controlll2 = false;
+
+
+
+				var invisableLineRight1 = { width: 4, height: 32, Collision: 0};
+        var invisableLineLeft1 = {width: 6, height: 32, Collision: 0};
+        var invisableLineUp1 = {width: 32, height: 4, Collision: 0};
+				var invisableLineDown1 = {  width: 32, height: 4, Collision: 0};
+
+				//OuterWalls
+
+				var UpperWall = { x: 0, y: 0, width: 650, height: 20 };
+        var GroundWall = { x: 0, y: 200, width: 650, height: 20 };
+				var rightwall = { x: 630, y: 0, width: 20, height: 220 };
+				var LeftWall = { x: 0, y: 0, width: 20, height: 220 }; 
+        var blueBox = { x: 600, y: 160, width: 20, height: 20 }; 
+        var GreenBox = { x: 600, y: 40, width: 20, height: 20 }; 
+
+
+				ctx = document.querySelector("canvas").getContext("2d");
+
+        ctx.width = 360;
+        ctx.height;
+
+
+				wall1 = {
+					width: 20,
+					height: 220,
+					x: 100,
+					y: 0
+				}
+
+        invisableLineRight = {
+          width: 4,
+          height: 32,
+          Collision: 0
+        };
+
+        invisableLineLeft = {
+          width: 6,
+          height: 32,
+          Collision: 0
+        };
+
+        invisableLineUp = {
+          width: 32,
+          height: 4,
+          Collision: 0
+        };
+
+        invisableLineDown = {
+          width: 32,
+          height: 4,
+          Collision: 0
+        };
+
+        Player = {
+          width: 32,
+          height: 32,
+          x: 30,
+          y: 70,
+          PlayerSpeed: 0.6,
+
+          x_velocity: 0,
+          y_velocity: 0
+				};
+				
+
+				Other1 = {
+          width: 32,
+          height: 32,
+          x: 160,
+          y: 70,
+          PlayerSpeed: 0.6,
+
+          x_velocity: 0,
+          y_velocity: 0
+        };
+
+        controller = {
+          left: false,
+          right: false,
+          up: false,
+          down: false,
+
+          keyLister: function (event) {
+            var key_state = event.type == "keydown" ? true : false;
+
+            switch (event.keyCode) {
+              case 37:
+                controller.left = key_state;
+                break;
+              case 39:
+                controller.right = key_state;
+                break;
+              case 38:
+                controller.up = key_state;
+                break;
+
+              case 40:
+                controller.down = key_state;
+								break;
+								
+            }
+          }
+				};
+				
+				Update = function () {
+
+
+					if (
+            Player.x + 33 < wall1.x + wall1.width &&
+            Player.x + 33 + invisableLineRight.width > wall1.x &&
+            Player.y < wall1.y + wall1.height &&
+            Player.y + invisableLineRight.height > wall1.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          } else {
+            invisableLineRight.Collision = 0;
+					}
+					
+
+
+					if (controller.down && invisableLineDown.Collision == 0 && Controlll1 == true) {
+            Player.y_velocity += Player.PlayerSpeed;
+          }
+
+          if (controller.up && invisableLineUp.Collision == 0 && Controlll1 == true) {
+            Player.y_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.left && invisableLineLeft.Collision == 0 && Controlll1 == true) {
+            Player.x_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.right && invisableLineRight.Collision == 0 && Controlll1 == true) {
+            Player.x_velocity += Player.PlayerSpeed;
+					}
+					//////////////////////OTher1/////////////
+					if (controller.down && invisableLineDown1.Collision == 0 && Controlll2 == true) {
+            Other1.y_velocity += Other1.PlayerSpeed;
+          }
+
+          if (controller.up && invisableLineUp1.Collision == 0 && Controlll2 == true) {
+            Other1.y_velocity -= Other1.PlayerSpeed;
+          }
+
+          if (controller.left && invisableLineLeft1.Collision == 0  && Controlll2== true) {
+            Other1.x_velocity -= Other1.PlayerSpeed;
+          }
+
+          if (controller.right&& invisableLineRight1.Collision == 0  && Controlll2 == true) {
+            Other1.x_velocity += Other1.PlayerSpeed;
+					}
+
+          Player.y += Player.y_velocity;
+          Player.x += Player.x_velocity;
+          Player.x_velocity *= 0.9;
+					Player.y_velocity *= 0.9;
+					
+
+
+					
+          Other1.y += Other1.y_velocity;
+          Other1.x += Other1.x_velocity;
+          Other1.x_velocity *= 0.9;
+          Other1.y_velocity *= 0.9;
+
+          ctx.clearRect(0, 0, 360, 360);
+
+          ctx.fillStyle = "#C0C0C0";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          //Right Col
+          ctx.fillStyle = "#7FFF00";
+          
+
+
+          //green Box
+
+          ctx.fillStyle = "#0000FF";
+          ctx.fillRect(
+            blueBox.x,
+            blueBox.y,
+            blueBox.width,
+            blueBox.height
+          );
+
+          ctx.fillStyle = "#7FFF00";
+
+          
+          
+
+        
+					
+
+
+
+
+          ctx.fillRect(
+            GreenBox.x,
+            GreenBox.y,
+            GreenBox.width,
+            GreenBox.height
+					);
+
+
+
+				
+   
+
+
+					//////////////EveryTing Else
+
+
+					ctx.fillStyle = "#ff0000";
+          ctx.fillRect(Player.x, Player.y, Player.width, Player.height);
+					ctx.fillRect(Other1.x, Other1.y, Other1.width, Other1.height);
+					ctx.fillRect(wall1.x, wall1.y, wall1.width, wall1.height);
+
+			//outerwalls
+			
+			ctx.fillRect(UpperWall.x, UpperWall.y, UpperWall.width, UpperWall.height);
+          ctx.fillRect(GroundWall.x, GroundWall.y, GroundWall.width, GroundWall.height);
+          ctx.fillRect(rightwall.x, rightwall.y, rightwall.width, rightwall.height);
+          ctx.fillRect(LeftWall.x, LeftWall.y, LeftWall.width, LeftWall.height);
+
+
+
+
+
+//walls///rightCol///
+
+if (
+            Player.x + 33 < UpperWall.x + UpperWall.width &&
+            Player.x + 33 + invisableLineRight.width > UpperWall.x &&
+            Player.y < UpperWall.y + UpperWall.height &&
+            Player.y + invisableLineRight.height > UpperWall.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < UpperWall.x + UpperWall.width &&
+            Player.x - 4 + invisableLineLeft.width > UpperWall.x &&
+            Player.y < UpperWall.y + UpperWall.height &&
+            Player.y + invisableLineLeft.height > UpperWall.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          } else {
+            invisableLineLeft.Collision = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < UpperWall.x + UpperWall.width &&
+            Player.x + invisableLineUp.width > UpperWall.x &&
+            Player.y - 3 < UpperWall.y + UpperWall.height &&
+            Player.y - 3 + invisableLineUp.height > UpperWall.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          } else {
+            invisableLineUp.Collision = 0;
+          }
+
+          //Down
+          if (
+            Player.x < UpperWall.x + UpperWall.width &&
+            Player.x + invisableLineDown.width > UpperWall.x &&
+            Player.y + 33 < UpperWall.y + UpperWall.height &&
+            Player.y + 33 + invisableLineDown.height > UpperWall.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          } else {
+            invisableLineDown.Collision = 0;
+          }
+
+          //right
+
+          if (
+            Player.x + 33 < GroundWall.x + GroundWall.width &&
+            Player.x + 33 + invisableLineRight.width > GroundWall.x &&
+            Player.y < GroundWall.y + GroundWall.height &&
+            Player.y + invisableLineRight.height > GroundWall.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < GroundWall.x + GroundWall.width &&
+            Player.x - 4 + invisableLineLeft.width > GroundWall.x &&
+            Player.y < GroundWall.y + GroundWall.height &&
+            Player.y + invisableLineLeft.height > GroundWall.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < GroundWall.x + GroundWall.width &&
+            Player.x + invisableLineUp.width > GroundWall.x &&
+            Player.y - 3 < GroundWall.y + GroundWall.height &&
+            Player.y - 3 + invisableLineUp.height > GroundWall.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Down
+          if (
+            Player.x < GroundWall.x + GroundWall.width &&
+            Player.x + invisableLineDown.width > GroundWall.x &&
+            Player.y + 33 < GroundWall.y + GroundWall.height &&
+            Player.y + 33 + invisableLineDown.height > GroundWall.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //right
+
+          if (
+            Player.x + 33 < rightwall.x + rightwall.width &&
+            Player.x + 33 + invisableLineRight.width > rightwall.x &&
+            Player.y < rightwall.y + rightwall.height &&
+            Player.y + invisableLineRight.height > rightwall.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < rightwall.x + rightwall.width &&
+            Player.x - 4 + invisableLineLeft.width > rightwall.x &&
+            Player.y < rightwall.y + rightwall.height &&
+            Player.y + invisableLineLeft.height > rightwall.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < rightwall.x + rightwall.width &&
+            Player.x + invisableLineUp.width > rightwall.x &&
+            Player.y - 3 < rightwall.y + rightwall.height &&
+            Player.y - 3 + invisableLineUp.height > rightwall.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Down
+          if (
+            Player.x < rightwall.x + rightwall.width &&
+            Player.x + invisableLineDown.width > rightwall.x &&
+            Player.y + 33 < rightwall.y + rightwall.height &&
+            Player.y + 33 + invisableLineDown.height > rightwall.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //right
+
+          if (
+            Player.x + 33 < LeftWall.x + LeftWall.width &&
+            Player.x + 33 + invisableLineRight.width > LeftWall.x &&
+            Player.y < LeftWall.y + LeftWall.height &&
+            Player.y + invisableLineRight.height > LeftWall.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < LeftWall.x + LeftWall.width &&
+            Player.x - 4 + invisableLineLeft.width > LeftWall.x &&
+            Player.y < LeftWall.y + LeftWall.height &&
+            Player.y + invisableLineLeft.height > LeftWall.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < LeftWall.x + LeftWall.width &&
+            Player.x + invisableLineUp.width > LeftWall.x &&
+            Player.y - 3 < LeftWall.y + LeftWall.height &&
+            Player.y - 3 + invisableLineUp.height > LeftWall.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Down
+          if (
+            Player.x < LeftWall.x + LeftWall.width &&
+            Player.x + invisableLineDown.width > LeftWall.x &&
+            Player.y + 33 < LeftWall.y + LeftWall.height &&
+            Player.y + 33 + invisableLineDown.height > LeftWall.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+					}
+
+
+
+          //////////////////////////////////////Left With wall 1///////////////////////////////////////
+
+          if(myCol(Other1.x, wall1.x, wall1.width, invisableLineLeft1.width, Other1.y, wall1.y, wall1.height, invisableLineLeft1.height, -4, 0 )){
+            invisableLineLeft1.Collision = 1;
+            Other1.x_velocity = 0;
+          }else{
+            invisableLineLeft1.Collision = 0;
+          }
+
+
+
+          ////////////////////////Up with upperwall/////////////////////////
+          if(myCol(Other1.x, UpperWall.x, UpperWall.width, invisableLineUp1.width, Other1.y, UpperWall.y, UpperWall.height, invisableLineUp1.height, 0, -3 )){
+            invisableLineUp1.Collision = 1;
+            Other1.y_velocity = 0;
+          }else{
+            invisableLineUp1.Collision = 0;
+          }
+
+          ////////////////////////Down With grondWall//////////
+         
+          if(myCol(Other1.x, GroundWall.x, GroundWall.width, invisableLineDown1.width, Other1.y, GroundWall.y, GroundWall.height, invisableLineDown1.height, 0 , +33 )){
+            invisableLineDown1.Collision = 1;
+            Other1.y_velocity = 0;
+          }else{
+            invisableLineDown1.Collision = 0;
+          }
+
+          //////////////////////Right with rightwall
+
+
+					if(myCol(Other1.x, rightwall.x, rightwall.width, invisableLineUp1.width, Other1.y, rightwall.y, rightwall.height, invisableLineRight1.height, -4, 0 )){
+            invisableLineRight1.Collision = 1;
+            Other1.x_velocity = 0;
+          }else{
+            invisableLineRight1.Collision = 0;
+          }
+
+          //////////////////Other With Blue///////////////////
+
+          if(myCol(Other1.x, blueBox.x, blueBox.width, Other1.width, Other1.y, blueBox.y, blueBox.height, Other1.height, 0, 0 )){
+            
+            wall1.y += 1.3;
+          }
+          ////////Other with leftwall/////////////////
+
+          if(myCol(Other1.x, LeftWall.x, LeftWall.width, invisableLineLeft1.width, Other1.y, LeftWall.y, LeftWall.height, invisableLineLeft1.height, -4, 0 )){
+            invisableLineLeft1.Collision = 1;
+            Other1.x_velocity = 0;
+          }
+          /////////////////////////Grenn Box
+          if(myCol(Player.x, GreenBox.x, GreenBox.width, Player.width, Player.y, GreenBox.y, GreenBox.height, Player.height, 0, 0 )){
+            
+            location = 'https://www.google.ca/?safe=active&ssui=on';
+          }
+
+
+
+
+   
+          window.requestAnimationFrame(Update);
+          myCol();
+
+
+
+				};
+
+
+
+
+        function myCol (myx1, myx2, mywidth2, mylinewidth, myy1, myy2, myheight2, mylineheight, myPlusx , myPlusy)
+           {
+           if(
+           myx1 + myPlusx < myx2 + mywidth2 && 
+           myx1 + myPlusx + mylinewidth > myx2 &&
+           myy1 + myPlusy < myy2 + myheight2 &&
+           myy1 + myPlusy + mylineheight > myy2
+){
+  return true;
+}
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+        
+			
+				Update();
+
+window.addEventListener("keydown", controller.keyLister);
+window.addEventListener("keyup", controller.keyLister);
+
+			
+			</script>
+  </body>
+</html>
