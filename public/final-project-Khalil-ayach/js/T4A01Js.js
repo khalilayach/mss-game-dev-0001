@@ -286,7 +286,7 @@
             Player.y < Exit.y + Exit.height &&
             Player.y + invisableLineRight.height > Exit.y
           ) {
-            location = "https://www.google.ca/?safe=active&ssui=on";
+            location = "T4A02-gameLevel-2-khalil-ayach";
           }
 
           //LeftCol///
@@ -297,7 +297,7 @@
             Player.y < Exit.y + Exit.height &&
             Player.y + invisableLineLeft.height > Exit.y
           ) {
-            location = "https://www.google.ca/?safe=active&ssui=on";
+            location = "T4A02-gameLevel-2-khalil-ayach";
           }
 
           //Up Col//
@@ -308,7 +308,7 @@
             Player.y - 3 < Exit.y + Exit.height &&
             Player.y - 3 + invisableLineUp.height > Exit.y
           ) {
-            location = "https://www.google.ca/?safe=active&ssui=on";
+            location = "T4A02-gameLevel-2-khalil-ayach";
           }
 
           //Down
@@ -318,7 +318,7 @@
             Player.y + 33 < Exit.y + Exit.height &&
             Player.y + 33 + invisableLineDown.height > Exit.y
           ) {
-            location = "https://www.google.ca/?safe=active&ssui=on";
+            location = "T4A02-gameLevel-2-khalil-ayach";
           }
 
           //EveryThing Else
