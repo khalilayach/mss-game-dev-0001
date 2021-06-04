@@ -259,10 +259,13 @@ ctx.fillStyle = "#00FFFF";
 					ctx.fillStyle = "#ff0000";
           ctx.fillRect(Player.x, Player.y, Player.width, Player.height);
 					ctx.fillRect(Other1.x, Other1.y, Other1.width, Other1.height);
+					
+					//wall 1/////////////////////////////////
+					ctx.fillStyle = "#7FFF00";
 					ctx.fillRect(wall1.x, wall1.y, wall1.width, wall1.height);
 
 			//outerwalls
-	ctx.fillStyle = "#7FFF00";		
+			
 			ctx.fillRect(UpperWall.x, UpperWall.y, UpperWall.width, UpperWall.height);
           ctx.fillRect(GroundWall.x, GroundWall.y, GroundWall.width, GroundWall.height);
           ctx.fillRect(rightwall.x, rightwall.y, rightwall.width, rightwall.height);
