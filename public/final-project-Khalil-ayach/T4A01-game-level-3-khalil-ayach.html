@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Project number 1</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+
+
+      <body onKeyDown="{
+        let myAlphaKey = event.key
+    
+        if(myAlphaKey == 1){
+    
+          Controlll1 = false
+          Controlll2 = true
+          
+          }
+    
+    
+          if(myAlphaKey == 0){
+    
+            Controlll1 = true
+            Controlll2 = false
+            
+            }
+    
+    
+      }">
+
+
+
+
+
+    <div id="app"></div>
+    <canvas id="canvas" width="450" height="200">
+      <script>
+        var rect2 = { x: 0, y: 0, width: 450, height: 20 };
+        var rect1 = { x: 0, y: 180, width: 450, height: 20 };
+        var rect3 = { x: 430, y: 0, width: 20, height: 200 };
+        var rect4 = { x: 0, y: 0, width: 20, height: 200 };
+        var rect5 = { x: 120, y: 0, width: 10, height: 200 };
+        var rect6 = { x: 300, y: 0, width: 10, height: 200 };
+        var Exit = { x: 30, y: 30, width: 20, height: 20 };
+        var Exit1 = { x: 380, y: 140, width: 20, height: 20 };
+        var Exit2 = { x: 380, y: 40, width: 20, height: 20 };
+        var Player1 = {
+          x: 200,
+          y: 80,
+          width: 32,
+          height: 32,
+          PlayerSpeed: 0.6,
+
+          x_velocity: 0,
+          y_velocity: 0
+        };
+        var Player;
+        var ctx;
+        var Update;
+        var controller;
+        var invisableLineRight;
+        var invisableLineLeft;
+        var invisableLineUp;
+        var invisableLineDown;
+        var Controlll1 = true;
+				var Controlll2 = false;
+        
+
+        var invisableLineRight1 = { width: 4, height: 32, Collision: 0 };
+        var invisableLineLeft1 = { width: 6, height: 32, Collision: 0 };
+        var invisableLineUp1 = { width: 32, height: 4, Collision: 0 };
+        var invisableLineDown1 = { width: 32, height: 4, Collision: 0 };
+        var Col;
+
+        ctx = document.querySelector("canvas").getContext("2d");
+
+        ctx.width = 360;
+        ctx.height;
+
+        invisableLineRight = {
+          width: 4,
+          height: 32,
+          Collision: 0
+        };
+
+        invisableLineLeft = {
+          width: 6,
+          height: 32,
+          Collision: 0
+        };
+
+        invisableLineUp = {
+          width: 32,
+          height: 4,
+          Collision: 0
+        };
+
+        invisableLineDown = {
+          width: 32,
+          height: 4,
+          Collision: 0
+        };
+
+        Player = {
+          width: 32,
+          height: 32,
+          x: 50,
+          y: 70,
+          PlayerSpeed: 0.6,
+
+          x_velocity: 0,
+          y_velocity: 0
+        };
+
+        controller = {
+          left: false,
+          right: false,
+          up: false,
+          down: false,
+
+          keyLister: function (event) {
+            var key_state = event.type == "keydown" ? true : false;
+
+            switch (event.keyCode) {
+              case 37:
+                controller.left = key_state;
+                break;
+              case 39:
+                controller.right = key_state;
+                break;
+              case 38:
+                controller.up = key_state;
+                break;
+
+              case 40:
+                controller.down = key_state;
+                break;
+            }
+          }
+        };
+
+        Update = function () {
+          ///rightCol///
+
+          if (
+            Player.x + 33 < rect2.x + rect2.width &&
+            Player.x + 33 + invisableLineRight.width > rect2.x &&
+            Player.y < rect2.y + rect2.height &&
+            Player.y + invisableLineRight.height > rect2.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < rect2.x + rect2.width &&
+            Player.x - 4 + invisableLineLeft.width > rect2.x &&
+            Player.y < rect2.y + rect2.height &&
+            Player.y + invisableLineLeft.height > rect2.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < rect2.x + rect2.width &&
+            Player.x + invisableLineUp.width > rect2.x &&
+            Player.y - 3 < rect2.y + rect2.height &&
+            Player.y - 3 + invisableLineUp.height > rect2.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          } else {
+            invisableLineUp.Collision = 0;
+          }
+
+          //Down
+          if (
+            Player.x < rect2.x + rect2.width &&
+            Player.x + invisableLineDown.width > rect2.x &&
+            Player.y + 33 < rect2.y + rect2.height &&
+            Player.y + 33 + invisableLineDown.height > rect2.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          } else {
+            invisableLineDown.Collision = 0;
+          }
+
+          //right
+
+          if (
+            Player.x + 33 < rect1.x + rect1.width &&
+            Player.x + 33 + invisableLineRight.width > rect1.x &&
+            Player.y < rect1.y + rect1.height &&
+            Player.y + invisableLineRight.height > rect1.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < rect1.x + rect1.width &&
+            Player.x - 4 + invisableLineLeft.width > rect1.x &&
+            Player.y < rect1.y + rect1.height &&
+            Player.y + invisableLineLeft.height > rect1.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < rect1.x + rect1.width &&
+            Player.x + invisableLineUp.width > rect1.x &&
+            Player.y - 3 < rect1.y + rect1.height &&
+            Player.y - 3 + invisableLineUp.height > rect1.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Down
+          if (
+            Player.x < rect1.x + rect1.width &&
+            Player.x + invisableLineDown.width > rect1.x &&
+            Player.y + 33 < rect1.y + rect1.height &&
+            Player.y + 33 + invisableLineDown.height > rect1.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //right
+
+          if (
+            Player.x + 33 < rect3.x + rect3.width &&
+            Player.x + 33 + invisableLineRight.width > rect3.x &&
+            Player.y < rect3.y + rect3.height &&
+            Player.y + invisableLineRight.height > rect3.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < rect3.x + rect3.width &&
+            Player.x - 4 + invisableLineLeft.width > rect3.x &&
+            Player.y < rect3.y + rect3.height &&
+            Player.y + invisableLineLeft.height > rect3.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < rect3.x + rect3.width &&
+            Player.x + invisableLineUp.width > rect3.x &&
+            Player.y - 3 < rect3.y + rect3.height &&
+            Player.y - 3 + invisableLineUp.height > rect3.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Down
+          if (
+            Player.x < rect3.x + rect3.width &&
+            Player.x + invisableLineDown.width > rect3.x &&
+            Player.y + 33 < rect3.y + rect3.height &&
+            Player.y + 33 + invisableLineDown.height > rect3.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //right
+
+          if (
+            Player.x + 33 < rect4.x + rect4.width &&
+            Player.x + 33 + invisableLineRight.width > rect4.x &&
+            Player.y < rect4.y + rect4.height &&
+            Player.y + invisableLineRight.height > rect4.y
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //LeftCol///
+
+          if (
+            Player.x - 4 < rect4.x + rect4.width &&
+            Player.x - 4 + invisableLineLeft.width > rect4.x &&
+            Player.y < rect4.y + rect4.height &&
+            Player.y + invisableLineLeft.height > rect4.y
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          //Up Col//
+
+          if (
+            Player.x < rect4.x + rect4.width &&
+            Player.x + invisableLineUp.width > rect4.x &&
+            Player.y - 3 < rect4.y + rect4.height &&
+            Player.y - 3 + invisableLineUp.height > rect4.y
+          ) {
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Down
+          if (
+            Player.x < rect4.x + rect4.width &&
+            Player.x + invisableLineDown.width > rect4.x &&
+            Player.y + 33 < rect4.y + rect4.height &&
+            Player.y + 33 + invisableLineDown.height > rect4.y
+          ) {
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }
+
+          //Exit
+
+          //right
+
+          //EveryThing Else
+
+          if (controller.down && invisableLineDown.Collision == 0 && Controlll1 == true) {
+            Player.y_velocity += Player.PlayerSpeed;
+          }
+
+          if (controller.up && invisableLineUp.Collision == 0 && Controlll1 == true) {
+            Player.y_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.left && invisableLineLeft.Collision == 0 && Controlll1 == true) {
+            Player.x_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.right && invisableLineRight.Collision == 0 && Controlll1 == true) {
+            Player.x_velocity += Player.PlayerSpeed;
+          }
+
+          //Other Player///////////////////
+
+          if (controller.down && invisableLineDown1.Collision == 0 && Controlll2 == true) {
+            Player1.y_velocity += Player1.PlayerSpeed;
+          }
+
+          if (controller.up && invisableLineUp1.Collision == 0 && Controlll2 == true) {
+            Player1.y_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.left && invisableLineLeft1.Collision == 0 && Controlll2 == true) {
+            Player1.x_velocity -= Player1.PlayerSpeed;
+          }
+
+          if (controller.right && invisableLineRight1.Collision == 0 && Controlll2 == true) {
+            Player1.x_velocity += Player1.PlayerSpeed;
+          }
+
+          Player.y += Player.y_velocity;
+          Player.x += Player.x_velocity;
+          Player.x_velocity *= 0.9;
+          Player.y_velocity *= 0.9;
+
+          Player1.y += Player1.y_velocity;
+          Player1.x += Player1.x_velocity;
+          Player1.x_velocity *= 0.9;
+          Player1.y_velocity *= 0.9;
+
+          ctx.clearRect(0, 0, 360, 360);
+
+          ctx.fillStyle = "#C0C0C0";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          //Right Col
+          ctx.fillStyle = "#7FFF00";
+
+          //Left Col
+
+          //up Col
+
+          //Down Col
+          ////////////////////////////////////////////Rect//////////////
+          ctx.fillRect(rect2.x, rect2.y, rect2.width, rect2.height);
+          ctx.fillRect(rect1.x, rect1.y, rect1.width, rect1.height);
+          ctx.fillRect(rect3.x, rect3.y, rect3.width, rect3.height);
+          ctx.fillRect(rect4.x, rect4.y, rect4.width, rect4.height);
+          ctx.fillRect(rect5.x, rect5.y, rect5.width, rect5.height);
+          ctx.fillRect(rect6.x, rect6.y, rect6.width, rect6.height);
+          ctx.fillStyle = "#0000FF";
+          ctx.fillRect(Exit.x, Exit.y, Exit.width, Exit.height);
+          ctx.fillRect(Exit1.x, Exit1.y, Exit1.width, Exit1.height);
+          ctx.fillStyle = "#00FFFF";
+          ctx.fillRect(Exit2.x, Exit2.y, Exit2.width, Exit2.height);
+
+          ctx.fillStyle = "#ff0000";
+          ctx.fillRect(Player.x, Player.y, Player.width, Player.height);
+          ctx.fillRect(Player1.x, Player1.y, Player1.width, Player1.height);
+
+          if (
+            Col(
+              Player.x,
+              rect5.x,
+              rect5.width,
+              invisableLineLeft.width,
+              Player.y,
+              rect5.y,
+              rect5.height,
+              invisableLineLeft.height,
+              -4,
+              0
+            )
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          } else {
+            invisableLineLeft.Collision = 0;
+          }
+
+          if (
+            Col(
+              Player.x,
+              rect5.x,
+              rect5.width,
+              invisableLineRight.width,
+              Player.y,
+              rect5.y,
+              rect5.height,
+              invisableLineRight.height,
+              +33,
+              0
+            )
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          } else {
+            invisableLineRight.Collision = 0;
+          }
+
+          if (
+            Col(
+              Player.x,
+              Exit.x,
+              Exit.width,
+              Player.width,
+              Player.y,
+              Exit.y,
+              Exit.height,
+              Player.height,
+              0,
+              0
+            )
+          ) {
+            rect6.height -= 1;
+          } else {
+            rect6.height += 6;
+          }
+
+
+
+
+          if (
+            Col(
+              Player1.x,
+              Exit1.x,
+              Exit1.width,
+              Player1.width,
+              Player1.y,
+              Exit1.y,
+              Exit1.height,
+              Player1.height,
+              0,
+              0
+            )
+          ) {
+            rect5.height -= 1;
+          } 
+
+
+          if (
+            Col(
+              Player1.x,
+              Exit.x,
+              Exit.width,
+              Player1.width,
+              Player1.y,
+              Exit.y,
+              Exit.height,
+              Player1.height,
+              0,
+              0
+            )
+          ) {
+            rect6.height -= 7;
+          } 
+
+          
+
+          if (rect6.height >= 200) {
+            rect6.height = 200;
+          }
+
+          if (rect6.height <= 0) {
+            rect6.height = 0;
+          }
+
+          if (
+            Col(
+              Player1.x,
+              rect5.x,
+              rect5.width,
+              invisableLineLeft.width,
+              Player1.y,
+              rect5.y,
+              rect5.height,
+              invisableLineLeft.height,
+              -4,
+              0
+            )
+          ) {
+            invisableLineLeft1.Collision = 1;
+            Player1.x_velocity = 0;
+          } else {
+            invisableLineLeft1.Collision = 0;
+          }
+
+          if (
+            Col(
+              Player1.x,
+              rect4.x,
+              rect4.width,
+              invisableLineLeft.width,
+              Player1.y,
+              rect4.y,
+              rect4.height,
+              invisableLineLeft.height,
+              -4,
+              0
+            )
+          ) {
+            invisableLineLeft1.Collision = 1;
+            Player1.x_velocity = 0;
+          }
+
+          if (
+            Col(
+              Player1.x,
+              rect6.x,
+              rect6.width,
+              invisableLineLeft.width,
+              Player1.y,
+              rect6.y,
+              rect6.height,
+              invisableLineLeft.height,
+              -4,
+              0
+            )
+          ) {
+            invisableLineLeft1.Collision = 1;
+            Player1.x_velocity = 0;
+          }
+
+
+          if (
+            Col(
+              Player.x,
+              rect6.x,
+              rect6.width,
+              invisableLineLeft.width,
+              Player.y,
+              rect6.y,
+              rect6.height,
+              invisableLineLeft.height,
+              -4,
+              0
+            )
+          ) {
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+
+          if (
+            Col(
+              Player.x,
+              rect6.x,
+              rect6.width,
+              invisableLineRight.width,
+              Player.y,
+              rect6.y,
+              rect6.height,
+              invisableLineRight.height,
+              +33,
+              0
+            )
+          ) {
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+
+
+
+
+          if (
+            Col(
+              Player1.x,
+              rect6.x,
+              rect6.width,
+              invisableLineRight1.width,
+              Player1.y,
+              rect6.y,
+              rect6.height,
+              invisableLineRight1.height,
+              +33,
+              0
+            )
+          ) {
+            invisableLineRight1.Collision = 1;
+            Player1.x_velocity = 0;
+          } else {
+            invisableLineRight1.Collision = 0;
+          }
+
+          if (
+            Col(
+              Player1.x,
+              rect3.x,
+              rect3.width,
+              invisableLineRight1.width,
+              Player1.y,
+              rect3.y,
+              rect3.height,
+              invisableLineRight1.height,
+              +33,
+              0
+            )
+          ) {
+            invisableLineRight1.Collision = 1;
+            Player1.x_velocity = 0;
+          }
+
+
+          if (
+            Col(
+              Player1.x,
+              rect5.x,
+              rect5.width,
+              invisableLineRight1.width,
+              Player1.y,
+              rect5.y,
+              rect5.height,
+              invisableLineRight1.height,
+              +33,
+              0
+            )
+          ) {
+            invisableLineRight1.Collision = 1;
+            Player1.x_velocity = 0;
+          }
+
+          if (
+            Col(
+              Player1.x,
+              rect2.x,
+              rect2.width,
+              invisableLineUp1.width,
+              Player1.y,
+              rect2.y,
+              rect2.height,
+              invisableLineUp1.height,
+              0,
+              -3
+            )
+          ) {
+            invisableLineUp1.Collision = 1;
+            Player1.y_velocity = 0;
+          } else {
+            invisableLineUp1.Collision = 0;
+          }
+
+          if (
+            Col(
+              Player1.x,
+              rect1.x,
+              rect1.width,
+              invisableLineDown1.width,
+              Player1.y,
+              rect1.y,
+              rect1.height,
+              invisableLineDown1.height,
+              0,
+              +33
+            )
+          ) {
+            invisableLineDown1.Collision = 1;
+            Player1.y_velocity = 0;
+          } else {
+            invisableLineDown1.Collision = 0;
+          }
+
+          Col();
+          window.requestAnimationFrame(Update);
+        };
+        Update();
+
+        function Col(
+          myx1,
+          myx2,
+          mywidth2,
+          mylinewidth,
+          myy1,
+          myy2,
+          myheight2,
+          mylineheight,
+          myPlusx,
+          myPlusy
+        ) {
+          if (
+            myx1 + myPlusx < myx2 + mywidth2 &&
+            myx1 + myPlusx + mylinewidth > myx2 &&
+            myy1 + myPlusy < myy2 + myheight2 &&
+            myy1 + myPlusy + mylineheight > myy2
+          ) {
+            return true;
+          }
+        }
+
+        window.addEventListener("keydown", controller.keyLister);
+        window.addEventListener("keyup", controller.keyLister);
+
+        //create boundaries
+      </script>
+    </canvas>
+  </body>
+</html>
