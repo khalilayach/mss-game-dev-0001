@@ -54,7 +54,7 @@
 
 				var UpperWall = { x: 0, y: 0, width: 650, height: 20 };
         var GroundWall = { x: 0, y: 200, width: 650, height: 20 };
-				var rightwall = { x: 100000, y: 0, width: 0, height: 0 };
+				var rightwall = { x: 630, y: 0, width: 20, height: 220 };
 				var LeftWall = { x: 0, y: 0, width: 20, height: 220 }; 
         var blueBox = { x: 580, y: 160, width: 20, height: 20 }; 
         var GreenBox = { x: 630, y: 0, width: 20, height: 220 }; 
@@ -238,14 +238,7 @@
 					
 
 
-ctx.fillStyle = "#00FFFF";
 
-          ctx.fillRect(
-            GreenBox.x,
-            GreenBox.y,
-            GreenBox.width,
-            GreenBox.height
-					);
 
 
 
@@ -272,7 +265,14 @@ ctx.fillStyle = "#00FFFF";
           ctx.fillRect(LeftWall.x, LeftWall.y, LeftWall.width, LeftWall.height);
 
 
+ctx.fillStyle = "#00FFFF";
 
+          ctx.fillRect(
+            GreenBox.x,
+            GreenBox.y,
+            GreenBox.width,
+            GreenBox.height
+					);
 
 
 //walls///rightCol///
