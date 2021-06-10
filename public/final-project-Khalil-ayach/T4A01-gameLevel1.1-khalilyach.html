@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+		<canvas id="canvas" width="360" height="180">
+		<script>
+			 var Player;
+        var ctx;
+        var Update;
+        var controller;
+        var invisableLineRight;
+        var invisableLineLeft;
+        var invisableLineUp;
+				var invisableLineDown;
+        var rect1;
+        var rect2 = {width: 20, height: 280, x: 0, y:0};
+        var rect3 = {width: 360, height: 20, x: 0, y:160};
+        var rect4 = {width: 10, height: 180, x: 220, y:0};
+        var button = {width: 20, height: 20, x: 30, y:56};
+        var Exit = {width: 20, height: 180, x: 340, y:0};
+        var myCol;
+				
+
+
+				ctx = document.querySelector("canvas").getContext("2d");
+
+        ctx.width = 360;
+        ctx.height;
+
+        invisableLineRight = {
+          width: 4,
+          height: 32,
+          Collision: 0
+        };
+
+        invisableLineLeft = {
+          width: 6,
+          height: 32,
+          Collision: 0
+        };
+
+        invisableLineUp = {
+          width: 32,
+          height: 4,
+          Collision: 0
+        };
+
+        invisableLineDown = {
+          width: 32,
+          height: 4,
+          Collision: 0
+        };
+
+        rect1 = {
+           width: 360,
+          height: 20,
+          x: 0,
+          y:0
+          }
+
+
+
+
+        Player = {
+          width: 32,
+          height: 32,
+          x: 160,
+          y: 70,
+          PlayerSpeed: 0.6,
+
+          x_velocity: 0,
+          y_velocity: 0
+        };
+
+        controller = {
+          left: false,
+          right: false,
+          up: false,
+          down: false,
+
+          keyLister: function (event) {
+            var key_state = event.type == "keydown" ? true : false;
+
+            switch (event.keyCode) {
+              case 37:
+                controller.left = key_state;
+                break;
+              case 39:
+                controller.right = key_state;
+                break;
+              case 38:
+                controller.up = key_state;
+                break;
+
+              case 40:
+                controller.down = key_state;
+                break;
+            }
+          }
+				};
+				
+				Update = function () {
+
+					if (controller.down && invisableLineDown.Collision == 0) {
+            Player.y_velocity += Player.PlayerSpeed;
+          }
+
+          if (controller.up && invisableLineUp.Collision == 0) {
+            Player.y_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.left && invisableLineLeft.Collision == 0) {
+            Player.x_velocity -= Player.PlayerSpeed;
+          }
+
+          if (controller.right && invisableLineRight.Collision == 0) {
+            Player.x_velocity += Player.PlayerSpeed;
+          }
+
+          Player.y += Player.y_velocity;
+          Player.x += Player.x_velocity;
+          Player.x_velocity *= 0.9;
+          Player.y_velocity *= 0.9;
+
+          ctx.clearRect(0, 0, 360, 360);
+
+          ctx.fillStyle = "#C0C0C0";
+          ctx.fillRect(0, 0, 360, 180);
+          //Right Col
+
+          ctx.fillStyle = "#0000FF";
+          ctx.fillRect(button.x, button.y, button.width, button.height);
+
+
+ 
+					
+
+
+					ctx.fillStyle = "#ff0000";
+         
+          ctx.fillRect(Player.x, Player.y, Player.width, Player.height);
+          ctx.fillRect(rect1.x, rect1.y, rect1.width, rect1.height);
+          ctx.fillRect(rect2.x, rect2.y, rect2.width, rect2.height);
+          ctx.fillRect(rect3.x, rect3.y, rect3.width, rect3.height);
+          ctx.fillRect(rect4.x, rect4.y, rect4.width, rect4.height);
+
+          ctx.fillStyle = "#7FFF00";
+          ctx.fillRect(Exit.x, Exit.y, Exit.width, Exit.height);
+
+
+          
+//////////////////////////////////////Left///////////////////////////////////////
+
+          if(myCol(Player.x, rect1.x, rect1.width, invisableLineLeft.width, Player.y, rect1.y, rect1.height, invisableLineLeft.height, -4, 0 )){
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }else{
+            invisableLineLeft.Collision = 0;
+          }
+
+
+
+////////////////////////////////////////up Col////////////////
+          if(myCol(Player.x, rect1.x, rect1.width, invisableLineUp.width, Player.y, rect1.y, rect1.height, invisableLineUp.height, 0, -3 )){
+            invisableLineUp.Collision = 1;
+            Player.y_velocity = 0;
+          }else{
+            invisableLineUp.Collision = 0;
+          }
+
+///////////////////////////////////////Down///////////////////////
+          if(myCol(Player.x, rect1.x, rect1.width, invisableLineDown.width, Player.y, rect1.y, rect1.height, invisableLineDown.height, 0, +33 )){
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }
+        
+/////////////////////////////////////Right//////////////////////////////////
+          if(myCol(Player.x, rect1.x, rect1.width, invisableLineRight.width, Player.y, rect1.y, rect1.height, invisableLineRight.height, +33, 0 )){
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }else{
+            invisableLineRight.Collision = 0;
+          }
+          ///////////Left with Left Wall//////////
+
+          if(myCol(Player.x, rect2.x, rect2.width, invisableLineLeft.width, Player.y, rect2.y, rect2.height, invisableLineLeft.height, -4, 0 )){
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }else{
+            invisableLineLeft.Collision = 0;
+          }
+//////////////////////////Down with Down wall////////
+if(myCol(Player.x, rect3.x, rect3.width, invisableLineDown.width, Player.y, rect3.y, rect3.height, invisableLineDown.height, 0, +33 )){
+            invisableLineDown.Collision = 1;
+            Player.y_velocity = 0;
+          }else{
+            invisableLineDown.Collision = 0;
+          }
+
+          //////////Right with Right wall//
+
+          if(myCol(Player.x, rect4.x, rect4.width, invisableLineRight.width, Player.y, rect4.y, rect4.height, invisableLineRight.height, +33, 0 )){
+            invisableLineRight.Collision = 1;
+            Player.x_velocity = 0;
+          }else{
+            invisableLineRight.Collision = 0;
+          }
+
+          //////////Left With Right walll 
+          if(myCol(Player.x, rect4.x, rect4.width, invisableLineLeft.width, Player.y, rect4.y, rect4.height, invisableLineLeft.height, -4, 0 )){
+            invisableLineLeft.Collision = 1;
+            Player.x_velocity = 0;
+          }
+
+          if(myCol(Player.x, button.x, button.width, Player.width, Player.y, button.y, button.height, Player.height, 0, 0 )){
+            rect4.height -= 1
+            
+          }
+
+          if(myCol(Player.x, Exit.x, Exit.width, Player.width, Player.y, Exit.y, Exit.height, Player.height, 0, 0 )){
+            rect4.height -= 1
+            
+          }
+
+
+          myCol();
+          window.requestAnimationFrame(Update);
+
+        
+
+				};
+
+
+ function myCol (myx1, myx2, mywidth2, mylinewidth, myy1, myy2, myheight2, mylineheight, myPlusx , myPlusy)
+ {
+if(
+myx1 + myPlusx < myx2 + mywidth2 && 
+myx1 + myPlusx + mylinewidth > myx2 &&
+myy1 + myPlusy < myy2 + myheight2 &&
+myy1 + myPlusy + mylineheight > myy2
+){
+  return true;
+}
+
+
+
+
+};
+
+
+
+
+				Update();
+
+window.addEventListener("keydown", controller.keyLister);
+window.addEventListener("keyup", controller.keyLister);
+
+			
+			</script>
+  </body>
+</html>
